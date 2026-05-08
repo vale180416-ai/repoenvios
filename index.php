@@ -35,7 +35,7 @@
                         <th class="px-6 py-4 border-b font-bold text-center">Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-700">
+                <tbody class="text-green-700">
                     <?php
                     $res = $conn->query("SELECT * FROM envios ORDER BY id DESC");
                     while($row = $res->fetch_assoc()):
