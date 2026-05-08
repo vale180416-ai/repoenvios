@@ -3,6 +3,7 @@ name: 🚀 Tarea de Despliegue
 on:
    push:
 jobs:
+
   deploy:
     name: 🎉 Trabajo de Despliegue
     runs-on: ubuntu-latest
@@ -14,10 +15,10 @@ jobs:
       - name: 📂 Sincronizando archivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp-vaaleeoortiiz.alwaysdata.net# Change if using another host
+          server: ftp-vaaleeoortiiz.alwaysdata.net
           username: vaaleeoortiiz
           password: clase12345
-          server-dir: www/ # Replace with your correct path
+          server-dir: www/ 
           protocol: ftps
           timeout: 86400000
           log-level: standard
