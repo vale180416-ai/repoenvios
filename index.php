@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-50 font-sans leading-normal tracking-normal">
 
-    <nav class="bg-blue-600 p-4 shadow-md">
+    <nav class="bg-purple-600 p-4 shadow-md">
         <div class="container mx-auto">
             <h1 class="text-white text-xl font-bold"><i class="fas fa-truck-fast mr-2"></i> CourierApp</h1>
         </div>
@@ -19,7 +19,7 @@
     <main class="container mx-auto mt-10 px-4">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-semibold text-gray-700">Envíos Registrados</h2>
-            <a href="crear.php" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+            <a href="crear.php" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
                 <i class="fas fa-plus mr-1"></i> Nuevo Envío
             </a>
         </div>
