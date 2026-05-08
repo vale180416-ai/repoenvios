@@ -1,7 +1,7 @@
 <?php
 $host = "mysql-vaaleeoortiiz.alwaysdata.net";
-$user = "vaaleeoortiiz"; 
-$pass = "clase12345";    
+$user = "marcela"; 
+$pass = "lina123";    
 $db   = "vaaleeoortiiz_mensajeria";
 
 $conn = new mysqli($host, $user, $pass, $db);
