@@ -26,20 +26,25 @@
             <th>Acciones</th>
         </tr>
         <?php
-        $res = $conn->query("SELECT * FROM envios ORDER BY id DESC");
-        while($row = $res->fetch_assoc()):
+        $res = $conn->query("SELECT id, destinatario, direccion, descripcion FROM envios ORDER BY id DESC");
+        if ($res && $res->num_rows > 0) {
+            while($row = $res->fetch_assoc()):
         ?>
         <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['destinatario']; ?></td>
-            <td><?php echo $row['direccion']; ?></td>
-            <td><?php echo $row['descripcion']; ?></td>
+            <td><?php echo htmlspecialchars($row['id']); ?></td>
+            <td><?php echo htmlspecialchars($row['destinatario']); ?></td>
+            <td><?php echo htmlspecialchars($row['direccion']); ?></td>
+            <td><?php echo htmlspecialchars($row['descripcion']); ?></td>
             <td>
-                <a href="editar.php?id=<?php echo $row['id']; ?>" class="btn edit">Editar</a>
-                <a href="eliminar.php?id=<?php echo $row['id']; ?>" class="btn del" onclick="return confirm('¿Eliminar?')">Borrar</a>
+                <a href="editar.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="btn edit">Editar</a>
+                <a href="eliminar.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="btn del" onclick="return confirm('¿Eliminar?')">Borrar</a>
             </td>
         </tr>
-        <?php endwhile; ?>
-    </table>
+        <?php 
+            endwhile;
+        } else {
+            echo '<tr><td colspan="5">No hay envíos registrados</td></tr>';
+        }
+        ?>
 </body>
 </html>
