@@ -15,7 +15,7 @@ jobs:
       - name: 📂 Sincronizando archivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: mysql-marcela.alwaysdata.net
+          server: ftp-marcela.alwaysdata.net
           username: marcela
           password: lina123
           server-dir: www/ 
