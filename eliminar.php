@@ -1,11 +1,6 @@
-<?php
+<?php 
 include 'conexion.php';
-
 $id = $_GET['id'];
-
-$sql = "DELETE FROM envios WHERE id=$id";
-
-if ($conn->query($sql) === TRUE) {
-    header("Location: index.php");
-}
+$conn->query("DELETE FROM envios WHERE id = $id");
+header("Location: index.php");
 ?>
