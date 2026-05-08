@@ -1,7 +1,7 @@
 <?php
 $host = "mysql-vaaleeoortiiz.alwaysdata.net";
 $usuario = "vaaleeoortiiz";
-$contrasena = "clase1234";
+$contrasena = "clase12345";
 $bd = "vaaleeoortiiz_mensajeria";
 
 $conn = new mysqli($host, $usuario, $contrasena, $bd);
