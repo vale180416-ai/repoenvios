@@ -17,7 +17,7 @@ jobs:
         with:
           server: ftp-johis.alwaysdata.net
           username: johis
-          password: clase1234
+          password: Clase1234
           server-dir: www/ 
           protocol: ftps
           timeout: 86400000
