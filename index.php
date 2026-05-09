@@ -20,7 +20,7 @@
         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-6">
             <div>
                 <h2 class="text-2xl font-semibold text-gray-700">Envíos Registrados</h2>
-                <p class="text-sm text-gray-500 mt-1">Gestiona tus paquetes y entregas de forma sencilla.</p>
+                <p class="text-sm text-gray-500 mt-1">Recibe y entrega de forma sencilla.</p>
             </div>
             <div class="flex flex-col sm:flex-row items-center gap-4">
                 <img src="assets/muneca-caja.svg" alt="Muñeca con una caja de envío" class="w-40 h-auto">
