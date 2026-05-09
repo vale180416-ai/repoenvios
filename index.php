@@ -17,11 +17,17 @@
     </nav>
 
     <main class="container mx-auto mt-10 px-4">
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-semibold text-gray-700">Envíos Registrados</h2>
-            <a href="crear.php" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                <i class="fas fa-plus mr-1"></i> Nuevo Envío
-            </a>
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-6">
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-700">Envíos Registrados</h2>
+                <p class="text-sm text-gray-500 mt-1">Gestiona tus paquetes y entregas de forma sencilla.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <img src="assets/muneca-caja.svg" alt="Muñeca con una caja de envío" class="w-40 h-auto">
+                <a href="crear.php" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-plus mr-1"></i> Nuevo Envío
+                </a>
+            </div>
         </div>
 
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
