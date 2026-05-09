@@ -52,7 +52,7 @@
                         <td class="px-6 py-4 border-b text-sm"><?php echo $row['direccion']; ?></td>
                         <td class="px-6 py-4 border-b text-sm text-gray-500"><?php echo $row['descripcion']; ?></td>
                         <td class="px-6 py-4 border-b text-center">
-                            <a href="editar.php?id=<?php echo $row['id']; ?>" class="text-orange-500 hover:text-orange-700 mx-2">
+                            <a href="editar.php?id=<?php echo $row['id']; ?>" class="text-red-500 hover:text-red-700 mx-2">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a href="eliminar.php?id=<?php echo $row['id']; ?>" class="text-red-500 hover:text-red-700 mx-2" onclick="return confirm('¿Eliminar registro?')">
