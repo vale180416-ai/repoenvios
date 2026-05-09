@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Envíos | CourierApp</title>
+    <title>Gestión de Envíos | EnviApp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,7 +12,7 @@
 
     <nav class="bg-purple-600 p-4 shadow-md">
         <div class="container mx-auto">
-            <h1 class="text-white text-xl font-bold"><i class="fas fa-truck-fast mr-2"></i> CourierApp</h1>
+            <h1 class="text-white text-xl font-bold"><i class="fas fa-truck-fast mr-2"></i> EnviApp</h1>
         </div>
     </nav>
 
