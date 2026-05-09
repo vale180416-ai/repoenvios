@@ -12,17 +12,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dir = trim($_POST['direccion'] ?? '');
     $desc = trim($_POST['descripcion'] ?? '');
 
+    // NUEVOS CAMPOS
+    $peso = trim($_POST['peso'] ?? '');
+    $alto = trim($_POST['alto'] ?? '');
+    $ancho = trim($_POST['ancho'] ?? '');
+    $largo = trim($_POST['largo'] ?? '');
+
     if (empty($dest) || empty($dir)) {
 
         $mensaje = 'El destinatario y la dirección son obligatorios';
 
     } else {
 
-        $stmt = $conn->prepare("INSERT INTO envios(destinatario, direccion, descripcion) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO envios 
+        (destinatario, direccion, descripcion, peso, alto, ancho, largo) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)");
 
         if ($stmt) {
 
-            $stmt->bind_param("sss", $dest, $dir, $desc);
+            $stmt->bind_param(
+                "sssdddd",
+                $dest,
+                $dir,
+                $desc,
+                $peso,
+                $alto,
+                $ancho,
+                $largo
+            );
 
             if ($stmt->execute()) {
 
@@ -51,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Envío</title>
 
-    <!-- Fuente moderna -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -78,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .contenedor{
             width:100%;
-            max-width:1100px;
+            max-width:1200px;
             display:flex;
             background:rgba(255,255,255,0.08);
             border-radius:25px;
@@ -87,17 +103,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             box-shadow:0 10px 35px rgba(0,0,0,0.4);
         }
 
-        /* LADO IZQUIERDO */
-
         .info{
-            width:50%;
+            width:45%;
             padding:50px;
             color:white;
             display:flex;
             flex-direction:column;
             justify-content:center;
             background:linear-gradient(135deg,#0f172a,#1e293b);
-            position:relative;
         }
 
         .info h1{
@@ -120,10 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             box-shadow:0 10px 25px rgba(0,0,0,0.3);
         }
 
-        /* FORMULARIO */
-
         .formulario{
-            width:50%;
+            width:55%;
             padding:50px;
             background:white;
         }
@@ -151,6 +162,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .grupo{
             margin-bottom:22px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
         }
 
         label{
@@ -182,6 +199,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         textarea{
             resize:none;
             height:120px;
+        }
+
+        .medidas{
+            background:#f9fafb;
+            padding:25px;
+            border-radius:18px;
+            margin-bottom:25px;
+            border:1px solid #e5e7eb;
+        }
+
+        .medidas h3{
+            margin-bottom:20px;
+            color:#111827;
+            font-size:20px;
         }
 
         .botones{
@@ -224,9 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background:#d1d5db;
         }
 
-        /* RESPONSIVE */
-
-        @media(max-width:900px){
+        @media(max-width:950px){
 
             .contenedor{
                 flex-direction:column;
@@ -235,6 +264,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             .info,
             .formulario{
                 width:100%;
+            }
+
+            .grid{
+                grid-template-columns:1fr;
             }
 
             .info{
@@ -251,86 +284,137 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
 
-    <div class="contenedor">
+<div class="contenedor">
 
-        <!-- PANEL IZQUIERDO -->
-        <div class="info">
+    <!-- PANEL IZQUIERDO -->
+    <div class="info">
 
-            <h1>Gestión Inteligente de Envíos</h1>
+        <h1>Gestión Inteligente de Envíos</h1>
 
-            <p>
-                Administra tus envíos de manera rápida, moderna y segura.
-                Registra destinatarios, direcciones y descripciones en un sistema
-                elegante diseñado para empresas de mensajería.
-            </p>
+        <p>
+            Administra tus paquetes de forma rápida y moderna.
+            Controla medidas, peso y detalles de cada envío
+            en una plataforma elegante y profesional.
+        </p>
 
-            <img 
-                class="mensajero"
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
-                alt="Mensajero"
-            >
-
-        </div>
-
-        <!-- FORMULARIO -->
-        <div class="formulario">
-
-            <h2 class="titulo">Nuevo Envío</h2>
-            <p class="subtitulo">Completa la información del paquete</p>
-
-            <?php if ($mensaje): ?>
-                <div class="mensaje">
-                    <?php echo htmlspecialchars($mensaje); ?>
-                </div>
-            <?php endif; ?>
-
-            <form method="POST">
-
-                <div class="grupo">
-                    <label>Destinatario</label>
-                    <input 
-                        type="text" 
-                        name="destinatario" 
-                        placeholder="Nombre del destinatario"
-                        required
-                    >
-                </div>
-
-                <div class="grupo">
-                    <label>Dirección</label>
-                    <input 
-                        type="text" 
-                        name="direccion" 
-                        placeholder="Dirección de entrega"
-                        required
-                    >
-                </div>
-
-                <div class="grupo">
-                    <label>Descripción</label>
-                    <textarea 
-                        name="descripcion"
-                        placeholder="Descripción del envío"
-                    ></textarea>
-                </div>
-
-                <div class="botones">
-
-                    <button type="submit">
-                        Guardar Envío
-                    </button>
-
-                    <a href="index.php" class="cancelar">
-                        Cancelar
-                    </a>
-
-                </div>
-
-            </form>
-
-        </div>
+        <img 
+            class="mensajero"
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
+            alt="Mensajero"
+        >
 
     </div>
+
+    <!-- FORMULARIO -->
+    <div class="formulario">
+
+        <h2 class="titulo">Registrar Envío</h2>
+        <p class="subtitulo">Ingresa los datos del paquete</p>
+
+        <?php if ($mensaje): ?>
+            <div class="mensaje">
+                <?php echo htmlspecialchars($mensaje); ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST">
+
+            <div class="grupo">
+                <label>Destinatario</label>
+                <input 
+                    type="text" 
+                    name="destinatario" 
+                    placeholder="Nombre del destinatario"
+                    required
+                >
+            </div>
+
+            <div class="grupo">
+                <label>Dirección</label>
+                <input 
+                    type="text" 
+                    name="direccion" 
+                    placeholder="Dirección de entrega"
+                    required
+                >
+            </div>
+
+            <div class="grupo">
+                <label>Descripción</label>
+                <textarea 
+                    name="descripcion"
+                    placeholder="Descripción del paquete"
+                ></textarea>
+            </div>
+
+            <!-- MEDIDAS -->
+            <div class="medidas">
+
+                <h3>📦 Medidas del Envío</h3>
+
+                <div class="grid">
+
+                    <div class="grupo">
+                        <label>Peso (kg)</label>
+                        <input 
+                            type="number" 
+                            step="0.01"
+                            name="peso"
+                            placeholder="Ej: 2.5"
+                        >
+                    </div>
+
+                    <div class="grupo">
+                        <label>Alto (cm)</label>
+                        <input 
+                            type="number" 
+                            step="0.01"
+                            name="alto"
+                            placeholder="Ej: 40"
+                        >
+                    </div>
+
+                    <div class="grupo">
+                        <label>Ancho (cm)</label>
+                        <input 
+                            type="number" 
+                            step="0.01"
+                            name="ancho"
+                            placeholder="Ej: 30"
+                        >
+                    </div>
+
+                    <div class="grupo">
+                        <label>Largo (cm)</label>
+                        <input 
+                            type="number" 
+                            step="0.01"
+                            name="largo"
+                            placeholder="Ej: 60"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="botones">
+
+                <button type="submit">
+                    Guardar Envío
+                </button>
+
+                <a href="index.php" class="cancelar">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
 
 </body>
 </html>
