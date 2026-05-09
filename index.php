@@ -26,7 +26,7 @@ if(isset($_GET['eliminar'])){
     <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
 
-    <title>CourierApp | Gestión Inteligente</title>
+    <title>EnviApp | Gestión Inteligente de envíos</title>
 
     <!-- TAILWIND -->
 
@@ -79,7 +79,7 @@ if(isset($_GET['eliminar'])){
 
                     <h1 class="text-3xl font-black tracking-widest bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
 
-                        COURIERAPP
+                        ENVIAPP
 
                     </h1>
 
