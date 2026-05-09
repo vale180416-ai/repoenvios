@@ -29,11 +29,11 @@ if ($_POST) {
     <meta charset="UTF-8">
     <title>Crear Envío</title>
     <style>
-        body { font-family: Arial; margin: 20px; }
+        body { font-family: Times New Roman; margin: 30px; }
         form { max-width: 400px; }
         input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
         button { background: green; color: white; padding: 10px; border: none; cursor: pointer; }
-        .mensaje { color: red; margin-bottom: 10px; }
+        .mensaje { color: fuchsia; margin-bottom: 10px; }
         a { text-decoration: none; color: blue; }
     </style>
 </head>
