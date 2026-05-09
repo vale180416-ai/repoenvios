@@ -11,25 +11,94 @@
 
     <title>ENVI GIRL</title>
 
+    <!-- TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- ICONOS -->
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
 
-<body class="bg-gradient-to-br from-pink-950 via-fuchsia-900 to-slate-950 text-white min-h-screen font-sans">
+<!-- FONDO -->
+<body class="text-white min-h-screen font-sans bg-cover bg-center bg-fixed"
+style="background-image:
+linear-gradient(rgba(10,10,20,0.85), rgba(20,10,30,0.90)),
+url('fondo.jpg');">
 
-    <!-- CONTENIDO -->
-    <section class="container mx-auto px-6 py-10">
+    <!-- EFECTO BLUR -->
+    <div class="fixed inset-0 backdrop-blur-[2px] -z-10"></div>
 
-        <h1 class="text-5xl font-extrabold text-center mb-10">
+    <!-- NAVBAR -->
+    <nav class="bg-black/30 backdrop-blur-xl border-b border-pink-400/20 shadow-2xl">
 
-            <span class="text-pink-400">
-                ENVI GIRL
-            </span>
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
 
-        </h1>
+            <!-- LOGO -->
+            <div class="flex items-center gap-4">
+
+                <div class="bg-pink-500 p-4 rounded-2xl shadow-lg shadow-pink-500/40">
+
+                    <i class="fas fa-truck-fast text-2xl"></i>
+
+                </div>
+
+                <div>
+
+                    <h1 class="text-4xl font-extrabold text-pink-400 tracking-wide">
+
+                        ENVI GIRL
+
+                    </h1>
+
+                    <p class="text-gray-300 text-sm">
+
+                        Plataforma Elegante de Envíos
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- BOTON -->
+            <a href="crear.php"
+            class="bg-pink-500 hover:bg-pink-600 text-white font-bold px-6 py-3 rounded-2xl transition duration-300 shadow-lg shadow-pink-500/40">
+
+                <i class="fas fa-plus mr-2"></i>
+
+                Nuevo Envío
+
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- TITULO -->
+    <section class="container mx-auto px-6 py-12">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-6xl font-extrabold leading-tight">
+
+                Gestión de
+
+                <span class="bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400 bg-clip-text text-transparent">
+
+                    Envíos Inteligente
+
+                </span>
+
+            </h2>
+
+            <p class="text-gray-300 mt-5 text-xl">
+
+                Plataforma moderna y futurista para administrar paquetes
+
+            </p>
+
+        </div>
 
         <!-- TABLA -->
         <div class="bg-white/5 backdrop-blur-2xl rounded-3xl overflow-hidden shadow-2xl border border-pink-400/20">
@@ -38,6 +107,7 @@
 
                 <table class="w-full text-left">
 
+                    <!-- CABECERA -->
                     <thead>
 
                         <tr class="bg-pink-500/10 text-pink-300 uppercase text-sm">
@@ -70,6 +140,7 @@
 
                     </thead>
 
+                    <!-- CONTENIDO -->
                     <tbody>
 
                         <?php
@@ -115,7 +186,7 @@
 
                                     <img
                                     src="imagenes/<?php echo $row['imagen']; ?>"
-                                    class="w-20 h-20 object-cover rounded-2xl mx-auto border border-pink-400/30 shadow-lg">
+                                    class="w-20 h-20 object-cover rounded-2xl mx-auto border border-pink-400/30 shadow-lg hover:scale-105 transition duration-300">
 
                                 <?php } else { ?>
 
@@ -164,7 +235,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="border-t border-pink-400/10 py-6 text-center text-gray-400 text-sm mt-10">
+    <footer class="border-t border-pink-400/10 py-6 text-center text-gray-300 text-sm mt-10 bg-black/20 backdrop-blur-xl">
 
         © <?php echo date('Y'); ?> ENVI GIRL | Plataforma Inteligente de Gestión
 
