@@ -15,10 +15,10 @@ jobs:
       - name: 📂 Sincronizando archivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp-opticaitalia.alwaysdata.net
-          username: opticaitalia
-          password: Samueldavid23
-          server-dir: www/ 
+          server: ftp-vaaleeoortiiz.alwaysdata.net
+          username: vaaleeoortiiz
+          password: clase12345
+          server-dir: www/
           protocol: ftps
           timeout: 86400000
           log-level: standard
