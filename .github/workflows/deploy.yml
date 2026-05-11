@@ -15,8 +15,8 @@ jobs:
       - name: 📂 Sincronizando archivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp-vaaleeoortiiz.alwaysdata.net
-          username: vaaleeoortiiz
+          server: ftp-maosetum.alwaysdata.net
+          username: maosetum
           password: clase12345
           server-dir: www/ 
           protocol: ftps
